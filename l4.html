@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 id="heading">INST377 - Lab 4</h1>
+
+    <div class="container">
+        <div class="section">
+            <form  id="alertForm">
+                <label for="name">Name:</label>
+                <input type="text" name="" id="name" required>
+                <button  onclick="alertNmae()">Alert Me!</button>
+            </form>
+        </div>
+        <div class="section">
+            <button onclick="changeColor()">Change Color</button>
+        </div>
+
+
+        <div class="section">
+            <form   id="alertForm">
+                <label for="name">Text Tester:</label>
+                <input type="text" name="" id="text" required>
+                
+                <button type="button" onclick="validateText()">Validate Text</button>
+            </form>
+
+        </div>
+
+
+        <div class="section">
+            <button onclick="addText()">Add Text</button>
+        </div>
+    </div>
+
+    <script>
+
+        function alertNmae() {
+            var name = document.getElementById('name').value;
+            if (name)
+                alert("Hi " + name + "!")
+        }   
+        let x = false
+        function changeColor() {
+            if (x) {
+                document.body.style.backgroundColor = "aquamarine"
+            } else {
+                document.body.style.backgroundColor = "green"
+            }
+            x = !x;
+        }
+        function validateText() {
+       
+            var text = document.getElementById('text').value
+            var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if (validation.test(text)) {
+                alert("not correct")
+               
+            }else{
+                document.getElementById('text').value="";           }
+        }
+        var y = true
+        function addText() {
+            var heading = document.getElementById('heading')
+            if (y) {
+                heading.innerHTML += " Adding Text";
+                y = false;
+            }
+
+        }
+    </script>
+</body>
+
+
+</html>
